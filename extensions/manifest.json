@@ -11,5 +11,5 @@
       "js": ["content-script.js"]
     }
   ],
-  "permissions": ["tabs"]
+  "permissions": ["tabs", "scripting", "desktopCapture", "activeTab"]
 }
