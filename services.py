@@ -10,7 +10,8 @@ options = {
             "--use-fake-device-for-media-stream",  # Simulate a media device
             "--enable-blink-features=WebRTC-H264WithOpenH264FFmpeg",  # Ensures WebRTC works
             f"-disable-extensions-except={path_to_extensions}",
-            f"--load-extension={path_to_extensions}"
+            f"--load-extension={path_to_extensions}",
+            "--auto-open-devtools-for-tabs",
         ]
 }
 
@@ -46,13 +47,13 @@ async def main():
 
         page = await browser.newPage()
         await page.setBypassCSP(True)
-
-        await page.goto('https://app.zoom.us/wc/83851178148/join', {"waitUntil": "networkidle2"})
+        #https://us05web.zoom.us/j/83446887496?pwd=GM5fFiMVGoidp34FSygKBJFt0pmwvM.1
+        await page.goto('https://app.zoom.us/wc/83446887496/join', {"waitUntil": "networkidle2"})
 
         await page.waitForSelector(selector="#input-for-pwd")
 
         await page.click(selector="#input-for-pwd")
-        await page.keyboard.type("HLg24NjNd1lq3PlaJ16FlPKJloIHaH.1", options={"delay":10})
+        await page.keyboard.type("GM5fFiMVGoidp34FSygKBJFt0pmwvM.1", options={"delay":10})
 
         await page.click(selector="#input-for-name")
         await page.keyboard.type("Recorder", options={"delay": 10})
